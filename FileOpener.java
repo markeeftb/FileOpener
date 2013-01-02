@@ -50,8 +50,9 @@ public class FileOpener extends Plugin {
         Uri uri = Uri.parse(url);
 
         Intent intent = null;
-        // Check what kind of file you are trying to open, by comparing the url with extensions you've defined at the beginning of the class
-        // When the if condition is matched, plugin sets the correct intent (mime) type, so Android knew what application to use to open the file
+        // Check what kind of file you are trying to open, by comparing the url with extensions.
+        // When the if condition is matched, plugin sets the correct intent (mime) type, 
+        // so Android knew what application to use to open the file
         
         if (url.contains(".doc") || url.contains(".docx")) {
             // Word document
