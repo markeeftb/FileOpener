@@ -16,7 +16,7 @@ To install the plugin, move ``````fileopener.js`````` to your project's www fold
 
 Create a directory within your project called ``````src/com/phonegap/plugins/fileopener`````` and move ``````FileOpener.java`````` into it.
 
-In your ``````res/xml/plugins.xml`````` file add the following line:
+In your ``````res/xml/config.xml`````` file add the following line:
 
 ``````java
 <plugin name="FileOpener" value="com.phonegap.plugins.fileopener.FileOpener"/>
