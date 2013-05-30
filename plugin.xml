@@ -7,7 +7,7 @@
     
     <name>FileOpener</name>
 
-    <asset src="www/fileopener.js" target="fileopener.js"/>
+    <asset src="www/fileopener.js" target="js/fileopener.js"/>
 
     <platform name="android">
                 
