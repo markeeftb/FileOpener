@@ -13,7 +13,13 @@ function FileOpener() {
 };
 
 FileOpener.prototype.open = function(url) {
-    cordova.exec(null, null, "FileOpener", "openFile", [url]);
+    var success = function() {
+        console.log("success!");
+    }    
+    var failure = function(error) {
+        console.log(error);
+    }
+    cordova.exec(success, failure, "FileOpener", "openFile", [url]);
 };
 
 /**

@@ -7,16 +7,16 @@ Adding the Plugin to your project
 -----------
 Using this plugin requires Android PhoneGap. It has been successfully tested on Android device with Cordova 2.2
 
-To install the plugin, move ``````fileopener.js`````` to your project's www folder and include a reference to it in your html file after ``````cordova-2.2.0.js``````.
+To install the plugin, move ``````fileopener.js`````` to your project's www folder and include a reference to it in your html file after ``````cordova-2.7.0.js``````.
 
 ```````html
-<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
 <script type="text/javascript" charset="utf-8" src="fileopener.js"></script>
 ```````
 
 Create a directory within your project called ``````src/com/phonegap/plugins/fileopener`````` and move ``````FileOpener.java`````` into it.
 
-In your ``````res/xml/plugins.xml`````` file add the following line:
+In your ``````res/xml/config.xml`````` file add the following line:
 
 ``````java
 <plugin name="FileOpener" value="com.phonegap.plugins.fileopener.FileOpener"/>
@@ -40,6 +40,9 @@ After you run the command above, Android device will either open the file with p
 
 RELEASE NOTES
 -------------
+May 21, 2013
+Update for Cordova-2.7.0
+
 January 2, 2013
 Initial release
 
