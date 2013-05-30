@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin 
+    xmlns="http://www.phonegap.com/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    id="com.phonegap.plugins.fileopener.FileOpener" 
+    version="0.0.1">
+    
+    <name>FileOpener</name>
+
+    <asset src="www/fileopener.js" target="fileopener.js"/>
+
+    <platform name="android">
+                
+        <config-file target="res/xml/config.xml" parent="/cordova/plugins">
+            <plugin name="FileOpener" value="com.phonegap.plugins.fileopener.FileOpener"/>
+        </config-file>
+                
+        <source-file src="src/android/FileOpener.java" target-dir="src/com/phonegap/plugins/fileopener"/>
+        
+    </platform>
+</plugin>
