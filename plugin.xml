@@ -10,12 +10,10 @@
     <asset src="www/fileopener.js" target="js/fileopener.js"/>
 
     <platform name="android">
-                
-        <config-file target="res/xml/config.xml" parent="/cordova/plugins">
-            <plugin name="FileOpener" value="com.phonegap.plugins.fileopener.FileOpener"/>
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="FileOpener">
+                <param name="android-package" value="com.phonegap.plugins.fileopener.FileOpener"/>            
+            </feature>
         </config-file>
-                
-        <source-file src="src/android/FileOpener.java" target-dir="src/com/phonegap/plugins/fileopener"/>
-        
     </platform>
 </plugin>
