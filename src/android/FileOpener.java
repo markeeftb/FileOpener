@@ -11,14 +11,14 @@ package com.phonegap.plugins.fileopener;
 import java.io.IOException;
 import java.net.URLConnection;
 
-import org.apache.cordova.api.CallbackContext;
+import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Intent;
 import android.net.Uri;
 
-import org.apache.cordova.api.CordovaPlugin;
+import org.apache.cordova.CordovaPlugin;
 
 public class FileOpener extends CordovaPlugin {
 

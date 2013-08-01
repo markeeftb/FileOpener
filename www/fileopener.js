@@ -9,26 +9,27 @@
 /**
  * Constructor
  */
-function FileOpener() {
+
+function FileOpener() {};
+
+FileOpener.prototype.open = function (url) {
+	var success = function () {
+		console.log("success!");
+	}
+	var failure = function (error) {
+		console.log(error);
+	}
+	cordova.exec(success, failure, "FileOpener", "openFile", [url]);
 };
 
-FileOpener.prototype.open = function(url) {
-    var success = function() {
-        console.log("success!");
-    }    
-    var failure = function(error) {
-        console.log(error);
-    }
-    cordova.exec(success, failure, "FileOpener", "openFile", [url]);
-};
-
+module.exports = FileOpener;
 /**
  * Load Plugin
  */
 
-if(!window.plugins) {
-    window.plugins = {};
-}
-if (!window.plugins.fileOpener) {
-    window.plugins.fileOpener = new FileOpener();
-}
+// if(!window.plugins) {
+//     window.plugins = {};
+// }
+// if (!window.plugins.fileOpener) {
+//     window.plugins.fileOpener = new FileOpener();
+// }
