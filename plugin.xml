@@ -2,7 +2,7 @@
 <plugin 
     xmlns="http://www.phonegap.com/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android" 
-    id="com.phonegap.plugins.fileopener.FileOpener" 
+    id="com.phonegap.plugins.fileopener" 
     version="0.0.2">
 
     <engines>
@@ -11,12 +11,8 @@
 
     <name>File Opener</name>
 
-    <!-- <asset src="www/fileopener.js" target="js/fileopener.js"/> -->
-
-    <!-- prevents the plugin's users from having to add a <script> tag for each file -->
     <js-module src="www/fileopener.js" name="FileOpener">
-        <!-- <clobbers target="some.value"/> indicates that the module.exports is inserted into the window object as window.some.value. You can have as many <clobbers> as you like. Any object not available on window is created. -->
-        <clobbers target="window.FileOpener" />
+        <clobbers target="window.plugins.FileOpener" />
     </js-module>
 
     <platform name="android">
