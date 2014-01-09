@@ -11,11 +11,12 @@
 
     <name>File Opener</name>
 
-    <js-module src="www/fileopener.js" name="FileOpener">
-        <clobbers target="window.plugins.fileOpener" />
-    </js-module>
-
     <platform name="android">
+
+        <js-module src="www/fileopener.js" name="FileOpener">
+            <clobbers target="window.plugins.fileOpener" />
+        </js-module>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="FileOpener">
                 <param name="android-package" value="com.phonegap.plugins.fileopener.FileOpener"/>            
