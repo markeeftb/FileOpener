@@ -24,4 +24,13 @@
         </config-file>
         <source-file src="src/android/FileOpener.java" target-dir="src/com/phonegap/plugins/fileopener" />
     </platform>
+
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FileOpener">
+                <param name="wp-package" value="FileOpener"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp/FileOpener.cs" />
+    </platform>
 </plugin>
