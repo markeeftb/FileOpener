@@ -8,52 +8,48 @@
 
 package com.phonegap.plugins.fileopener;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URLConnection;
 
+import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import org.apache.cordova.api.Plugin;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.CordovaPlugin;
 
-public class FileOpener extends Plugin {
+public class FileOpener extends CordovaPlugin {
 
     @Override
-    public PluginResult execute(String action, JSONArray args, String callbackId) {
-        PluginResult.Status status = PluginResult.Status.OK;
-        String result = "";
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
         try {
             if (action.equals("openFile")) {
                 openFile(args.getString(0));
+                callbackContext.success();
+                return true;
             }
-            else {
-                status = PluginResult.Status.INVALID_ACTION;
-            }
-            return new PluginResult(status, result);
-        } catch (JSONException e) {
-            return new PluginResult(PluginResult.Status.JSON_EXCEPTION);
         } catch (IOException e) {
-            return new PluginResult(PluginResult.Status.IO_EXCEPTION);
+            e.printStackTrace();
+            callbackContext.error(e.getMessage());
+        } catch (RuntimeException e) {  // KLUDGE for Activity Not Found
+            e.printStackTrace();
+            callbackContext.error(e.getMessage());
         }
+        return false;
     }
 
     private void openFile(String url) throws IOException {
         // Create URI
         Uri uri = Uri.parse(url);
 
-        Intent intent = null;
+        Intent intent;
         // Check what kind of file you are trying to open, by comparing the url with extensions.
         // When the if condition is matched, plugin sets the correct intent (mime) type, 
         // so Android knew what application to use to open the file
-        
+
         if (url.contains(".doc") || url.contains(".docx")) {
             // Word document
             intent = new Intent(Intent.ACTION_VIEW);
@@ -94,7 +90,7 @@ public class FileOpener extends Plugin {
             // Video files
             intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, "video/*");
-        }         
+        }
                 
         //if you want you can also define the intent type for any other file
         
@@ -102,12 +98,18 @@ public class FileOpener extends Plugin {
         //in this case, Android will show all applications installed on the device
         //so you can choose which application to use
         
+        // else {
+        //     intent = new Intent(Intent.ACTION_VIEW);
+        //     intent.setDataAndType(uri, "*/*");
+        // }
+
         else {
+            String mimeType = URLConnection.guessContentTypeFromName(url);
             intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, "*/*");
+            intent.setDataAndType(uri, mimeType);
         }
 
-        this.cordova.getActivity().startActivity(intent);
+        this.cordova.getActivity().startActivity(intent); // TODO handle ActivityNotFoundException
     }
 
 }
