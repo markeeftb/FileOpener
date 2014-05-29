@@ -1,26 +1,18 @@
-FileOpener plugin for Phonegap
+FileOpener plugin for Cordova 3
 =============
 
 Simple plugin which allows you to open popular files (PDF, WORD, EXCEL, JPG, GIF, POWERPOINT, VIDEOS, MUSIC etc.) stored locally on your device with Phonegap for Android.
 
+
 Adding the Plugin to your project
 -----------
-Using this plugin requires Android PhoneGap. It has been successfully tested on Android device with Cordova 2.2
+Using this plugin requires Android PhoneGap. It has been successfully tested on Android device with Cordova 3.
 
-To install the plugin, move ``````fileopener.js`````` to your project's www folder and include a reference to it in your html file after ``````cordova-2.2.0.js``````.
+To install the plugin
 
 ```````html
-<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
-<script type="text/javascript" charset="utf-8" src="fileopener.js"></script>
+cordova plugin add https://github.com/antonioJASR/FileOpener.git
 ```````
-
-Create a directory within your project called ``````src/com/phonegap/plugins/fileopener`````` and move ``````FileOpener.java`````` into it.
-
-In your ``````res/xml/plugins.xml`````` file add the following line:
-
-``````java
-<plugin name="FileOpener" value="com.phonegap.plugins.fileopener.FileOpener"/>
-``````
 
 Using the plugin
 ===========
@@ -40,6 +32,11 @@ After you run the command above, Android device will either open the file with p
 
 RELEASE NOTES
 -------------
+November 6, 2013
+Support for Cordova 3
+add png mimetype
+
+
 January 2, 2013
 Initial release
 
