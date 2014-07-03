@@ -1,13 +1,17 @@
 // forked from https://github.com/markeeftb/FileOpener
 
 module.exports = {
-    open: function (url) {
-        var success = function () {
-            console.log("success!");
+    open: function (url, opt_success, opt_failure) {
+        if (typeof opt_success == 'undefined') {
+            opt_success = function () {
+                console.log("success!");
+            }
         }
-        var failure = function (error) {
-            console.log(error);
+        if (typeof opt_failure == 'undefined') {
+            opt_failure = function (error) {
+                console.log(error);
+            }
         }
-        cordova.exec(success, failure, "FileOpener", "openFile", [url]);
+        cordova.exec(opt_success, opt_failure, "FileOpener", "openFile", [url]);
     }
 }
