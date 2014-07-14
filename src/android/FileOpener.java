@@ -108,8 +108,8 @@ public class FileOpener extends CordovaPlugin {
             intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, mimeType);
         }
-
-        this.cordova.getActivity().startActivity(intent); // TODO handle ActivityNotFoundException
+        Intent fileChooser = Intent.createChooser(intent, "Open File");
+        this.cordova.getActivity().startActivity(fileChooser); // TODO handle ActivityNotFoundException
     }
 
 }
