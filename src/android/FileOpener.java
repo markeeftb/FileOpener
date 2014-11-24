@@ -47,11 +47,20 @@ public class FileOpener extends CordovaPlugin {
                 return false;
             } catch (IOException e) {
                 return false;
+            } catch (Exception e) {
+                Toast.makeText(cordova.getActivity().getApplicationContext(),  "Oops! Couldn't find external application to open " + getFileExtension(args.getString(0)) + " files.", Toast.LENGTH_LONG).show();
+                return false;
             }
 
     }
 
-
+    private String getFileExtension(String name) {
+        int lastIndexOf = name.lastIndexOf(".");
+        if (lastIndexOf == -1) {
+            return "";
+        }
+        return name.substring(lastIndexOf).toUpperCase();
+    }
 
     private void openFile(String url) throws IOException {
         // Create URI
